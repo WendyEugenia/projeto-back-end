@@ -1,8 +1,16 @@
 
 const express = require("express")
 const router = express.Router()
+const cors = require('cors')//aqui estou trazendo o pacotee cors que permite consumir
+const conectaBancoDeDados = require('./bancoDeDados')
+
+conectaBancoDeDados()
+const Mulher = require('./mulherModel')
 
 const app = express()
+app.use(express.json())
+app.use(cors())
+
 const porta = 3333
 
 function mostraMulher( request, response){
